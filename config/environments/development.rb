@@ -12,6 +12,9 @@ Rails.application.configure do
   # Show full error reports.
   config.consider_all_requests_local = true
 
+  ENV['GOOGLE_OAUTH_CLIENT_ID'] = '359898575729-mql2lef1mv7s8k22vfbe6dfue98vk2j7.apps.googleusercontent.com'
+  ENV['GOOGLE_OAUTH_CLIENT_SECRET'] = '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'
+
   # Enable/disable caching. By default caching is disabled.
   if Rails.root.join('tmp/caching-dev.txt').exist?
     config.action_controller.perform_caching = true

@@ -1,9 +1,15 @@
-Rails.application.routes.draw do
-  devise_for :users
-  #root "users#index"
+  Rails.application.routes.draw do
 
-  #resources :users do
-  #end
+  
+  devise_for :users, :controllers => { :o_auth_callbacks => "users/o_auth_callbacks"}
+  devise_scope  :users do 
+    get 'users/sign_in', to: 'users/sessions#new', as: :new_session_path
 
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+    get 'users/sign_out', to: 'users/sessions#destroy', as: :destroy_user_session_path
+  end
+
+
+  resources :users
+  root "users#index"
 end
+ 

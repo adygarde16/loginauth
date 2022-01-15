@@ -20,6 +20,15 @@ Devise.setup do |config|
   # Configure the parent class to the devise controllers.
   # config.parent_controller = 'DeviseController'
 
+  #OAuth
+  require "omniauth-google-oauth2"
+
+  config.omniauth :facebook, '347409687199751', '51cdb7e069a50c761ab0aaedd7f22f79', callback_url: 'http://localhost:3000/auth/facebook/callback'
+   
+  config.omniauth :google_oauth2, '359898575729-mql2lef1mv7s8k22vfbe6dfue98vk2j7.apps.googleusercontent.com', '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'
+
+  #ENV['GOOGLE_OAUTH_CLIENT_SECRET'] = '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'
+
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class
